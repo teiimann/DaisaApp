@@ -136,6 +136,25 @@
   .animate-card-text {
     animation: card-text-animate 0.8s alternate infinite;
   }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .rotate-x-90 {
+    transform: rotateX(-90deg);
+  }
+  
+  .rotate-x-0 {
+    transform: rotateX(0deg);
+  }
+  
+  .duration-600 {
+    transition-duration: 600ms;
+  }
+  
+  .origin-bottom {
+    transform-origin: bottom;
+  }
 }
 
 .calendar-container .react-calendar {

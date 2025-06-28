@@ -4,7 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import WhiteLogo from "../img/logowhite.png";
 
 const GlobalStyle = createGlobalStyle`
-  @import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+ 
 
   :root {
     --image-0: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADsAAAAECAYAAAAwCUfLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAySURBVHgB5dJBDQAwCEPRzzINEzQVkzPnQMAFfUl7b1Lj+wEuAnYmx/pDwEKIVfeVxws5kgTiEPh5xgAAAABJRU5ErkJggg==);

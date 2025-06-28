@@ -144,6 +144,7 @@ const BookingCalendar = () => {
               value={formData.name}
               onChange={handleInputChange}
               required
+              hideLabel
               className="bg-psyco-black-light border-psyco-green-muted/50"
             />
           </div>
@@ -157,6 +158,7 @@ const BookingCalendar = () => {
               value={formData.email}
               onChange={handleInputChange}
               required
+              hideLabel
               className="bg-psyco-black-light border-psyco-green-muted/50"
             />
           </div>
@@ -169,6 +171,7 @@ const BookingCalendar = () => {
               value={formData.phone}
               onChange={handleInputChange}
               required
+              hideLabel
               className="bg-psyco-black-light border-psyco-green-muted/50"
             />
           </div>
@@ -181,6 +184,7 @@ const BookingCalendar = () => {
               value={formData.location}
               onChange={handleInputChange}
               required
+              hideLabel
               className="bg-psyco-black-light border-psyco-green-muted/50"
             />
           </div>
@@ -194,6 +198,7 @@ const BookingCalendar = () => {
               value={formData.details}
               onChange={handleInputChange}
               className="bg-psyco-black-light border-psyco-green-muted/50"
+              hideLabel
               placeholder="Please provide any specific requirements or details about your event"
             />
           </div>

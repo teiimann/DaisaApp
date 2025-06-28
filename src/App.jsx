@@ -8,7 +8,6 @@ import Services from "./Pages/Services";
 import Booking from "./Pages/Booking";
 import Footer from "./components/Footer";
 import MainNav from "./components/Navbars";
-import Test from "./Pages/Test";
 
 
 
@@ -28,7 +27,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
             <Route path="/booking" element={<Booking />} />
-            <Route path="/Test" element={<Test />} />
           </Routes>
         </main>
         <Footer />

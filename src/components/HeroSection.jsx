@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { MoveRight, Sparkles, Speaker, Music } from 'lucide-react';
+import { MoveRight, KeySquare, Forklift , Warehouse} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import UIbutton from './ui/UIbutton';
 
@@ -37,31 +37,29 @@ const HeroSection = () => {
       
       {/* Decorative Elements */}
       <div className="absolute top-1/4 left-20 hidden lg:block">
-        <Speaker className="h-12 w-12 text-blue-500/30" />
+        <Forklift className="h-12 w-12 text-blue-500/30" />
       </div>
       <div className="absolute bottom-1/4 right-20 hidden lg:block">
-        <Music className="h-16 w-16 text-blue-500/30" />
+        <Warehouse className="h-16 w-16 text-blue-500/30" />
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center">
           <div className="max-w-2xl">
-            <div className="flex items-center mb-4">
-              <div className="bg-blue-500/20 text-blue-400 rounded-full px-4 py-1 text-sm font-medium inline-flex items-center">
-                <Sparkles className="h-3.5 w-3.5 mr-1" />
-                Premium Sound & Light Services
-              </div>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-glow mb-6">
-              Elevate Your <span className="text-blue-500">Event</span> Experience
-            </h1>
-            
-            <p className="text-xl text-gray-300 mb-8">
-              Professional sound and lighting solutions that bring your event to life. 
-              From concerts to private parties, we deliver exceptional audiovisual experiences.
-            </p>
-            
+          <div className="flex items-center mb-4">
+  <div className="bg-blue-500/20 text-blue-400 rounded-full px-4 py-1 text-sm font-medium inline-flex items-center">
+    <KeySquare className="h-3.5 w-3.5 mr-1" />
+    Logistics. Infrastructure. Security.
+  </div>
+</div>
+
+<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-glow mb-6">
+  Discover <span className="text-blue-500">DAISA</span> Logistics Hub
+</h1>
+
+<p className="text-xl text-gray-300 mb-8">
+  Multi-purpose warehouse complex with private railway access, secure perimeter, and top-tier logistics infrastructure in Shymkent, Kazakhstan.
+</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/booking"

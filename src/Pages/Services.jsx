@@ -1,11 +1,23 @@
 import React, { useEffect } from "react";
 import { 
-  Volume2, Lightbulb, Music2, Speaker, Mic, MonitorSpeaker, 
-  Wrench, Video, Film, MoveRight 
+  Package, 
+  Building2,
+  TrainFront, 
+  Refrigerator,
+  Shapes,
+  Lock, 
+  Heater, 
+  MonitorSmartphone,
+  Cylinder,
+   MoveRight 
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import UIbutbook from "../components/ui/UIbutbook3";
 import UIbutton from "../components/ui/UIbutton";
+import AdditionalServiceCard from "../components/AdditionalServiceCard";
+import warehouseImg from "../img/warehouse.jpeg";
+import officeImg from "../img/office.jpeg";
+import railwayImg from "../img/railway.jpeg";
 
 const Services = () => {
   useEffect(() => {
@@ -14,83 +26,86 @@ const Services = () => {
 
   const mainServices = [
     {
-      id: "sound",
-      icon: <Volume2 size={32} />,
-      title: "Sound System",
-      description: "Professional sound setups tailored to your venue and event size. From intimate gatherings to large festival spaces, we provide crystal-clear audio with expert setup and operation.",
-      image: "/lovable-uploads/708f9e32-840d-46a4-aaa4-75ad2689e16f.png",
+      id: "warehouse",
+      icon: <Package size={32} />,
+      title: "Warehouse Facilities",
+      description:
+        "14,000 m² of storage space including heated, cold, and dry warehouses. Perfect for goods, equipment, or containers.",
+      image: warehouseImg,
       features: [
-        "6x Funktion One Res E4",
-        "4x Martin Audio Bass Bin 215",
-        "8x KWS Pi-Horn sub",
-        "powered by 5x Labgruppen PLM 20000Q",
-        "complete cabling and power management"
+        "14,000 m² total storage area",
+        "Cold and heated warehouse blocks",
+        "Storage for containers, equipment, and goods",
+        "Separate units for flexibility",
+        "Perimeter security and video surveillance",
       ]
     },
     {
-      id: "lighting",
-      icon: <Lightbulb size={32} />,
-      title: "Lighting Equipment",
-      description: "Create the perfect atmosphere with our state-of-the-art lighting equipment. From subtle ambient lighting to dynamic stage shows, we design and operate custom lighting solutions.",
-      image: "/lovable-uploads/becfc2e3-b59f-4f86-afca-b9f6fc7b7c14.png",
+      id: "office",
+      icon: <Building2 size={32} />,
+      title: "Office Infrastructure",
+      description:
+        "Modern office facilities including a 3-floor administrative building (7,159 m²) and a single-floor office (188 m²).",
+      image: officeImg,
       features: [
-        "Moving head fixtures",
-        "LED wash lights",
-        "Beam effects",
-        "Stage spotlights",
-        "Laser systems",
-        "DMX controllers and programming"
+        "3-story main office building (7,159 m²)",
+        "Separate one-floor office (188 m²)",
+        "Utilities included (gas heating, reserve power)",
+        "Separate entrance and parking",
+        "Ideal for logistics, administration, or coworking",
       ]
     },
     {
-      id: "dj",
-      icon: <Music2 size={32} />,
-      title: "DJ Services",
-      description: "Our professional DJs bring the right energy to your event with perfect music selection and mixing. We work with you to create custom playlists that match your event's vibe and audience.",
-      image: "https://images.unsplash.com/photo-1516873240891-4bf014728d44?auto=format&fit=crop&q=80",
+      id: "railway",
+      icon: <TrainFront size={32} />,
+      title: "Private Railway Access",
+      description:
+        "A 775-meter-long private railway line directly connects the DAISA complex to regional and national cargo networks.",
+      image: railwayImg,
       features: [
-        "Experienced professional DJs",
-        "High-quality controllers and equipment",
-        "Extensive music library",
-        "Custom playlist creation",
-        "Seamless mixing",
-        "MC services available"
+        "775 m private railway branch",
+        "Direct connection to logistics hubs",
+        "Efficient cargo handling",
+        "Supports container and bulk deliveries",
+        "Strategic advantage for distributors",
       ]
     }
   ];
+  
 
   const additionalServices = [
     {
-      icon: <Speaker size={24} />,
-      title: "PA Rental",
-      description: "Complete PA systems for events of any size."
+      icon: <Refrigerator size={24} />,
+      title: "Cold Storage Units",
+      description: "Refrigerated blocks ideal for food, pharmaceuticals, and perishables."
     },
     {
-      icon: <Mic size={24} />,
-      title: "Microphone Systems",
-      description: "Professional-grade wired and wireless microphones."
+      icon: <Shapes size={24} />,
+      title: "Flexible Storage",
+      description: "Individual warehouse options tailored for various industries."
     },
     {
-      icon: <MonitorSpeaker size={24} />,
-      title: "Studio Monitoring",
-      description: "High-quality monitoring for recording sessions."
+      icon: <Lock size={24} />,
+      title: "Secure Perimeter",
+      description: "Fenced territory with 24/7 security and video surveillance."
     },
     {
-      icon: <Wrench size={24} />,
-      title: "Technical Support",
-      description: "On-site technicians to ensure everything runs smoothly."
+      icon: <Heater size={24} />,
+      title: "Utilities and Heating",
+      description: "Gas-powered heating and private backup generator."
     },
     {
-      icon: <Video size={24} />,
-      title: "Visual Equipment",
-      description: "Projectors, LED screens, and visual mapping solutions."
+      icon: <MonitorSmartphone size={24} />,
+      title: "Office & Coworking",
+      description: "Ready-to-use office areas for logistics or operations."
     },
     {
-      icon: <Film size={24} />,
-      title: "Special Effects",
-      description: "Fog machines, CO2 jets, and other special effects."
+      icon: <Cylinder size={24} />,
+      title: "Container Storage",
+      description: "Spacious outdoor and indoor container storage zones."
     }
   ];
+  
 
   return (
     <div className="pt-[150px]">
@@ -101,12 +116,12 @@ const Services = () => {
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in">
-              Our Services
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 animate-fade-in animation-delay-100">
-              Professional sound and lighting solutions for events of all sizes. From intimate gatherings to large-scale productions, we have the expertise and equipment to make your event exceptional.
-            </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in">
+  Our Infrastructure
+</h1>
+<p className="text-xl text-gray-300 mb-8 animate-fade-in animation-delay-100">
+  DAISA offers a multifunctional logistics complex equipped with warehouses, office space, railway access, and secure perimeter — all in a strategic location in Shymkent.
+</p>
             <Link
               to="/booking"
               className="inline-flex items-center bg-psyco-green-DEFAULT hover:bg-psyco-green-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 btn-glow animate-fade-in animation-delay-200"
@@ -122,10 +137,11 @@ const Services = () => {
       <section className="py-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-2">What We Offer</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Comprehensive sound and lighting solutions for any event
-            </p>
+          <h2 className="text-3xl font-bold text-white mb-2">Our Logistics Capabilities</h2>
+<p className="text-gray-400 max-w-2xl mx-auto">
+  Integrated solutions for warehousing, administration, and transport — all in one strategic location.
+</p>
+
           </div>
 
           {mainServices.map((service, index) => (
@@ -139,13 +155,14 @@ const Services = () => {
             >
               <div className="w-full lg:w-1/2">
                 <div className="glassmorphism p-1 rounded-2xl h-full">
-                  <div className="relative w-full h-full overflow-hidden rounded-xl">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="object-cover w-full h-full aspect-video lg:aspect-auto transition-transform duration-\[10000ms\] hover:scale-110"
-                    />
-                  </div>
+                <div className="relative w-full h-full overflow-hidden rounded-xl group">
+  <img
+    src={service.image}
+    alt={service.title}
+    className="object-cover w-full h-full transition-all duration-700 ease-in-out opacity-40 group-hover:opacity-100 group-hover:scale-110"
+  />
+  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition-all duration-700 ease-in-out"></div>
+</div>
                 </div>
               </div>
 
@@ -198,17 +215,16 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {additionalServices.map((service, index) => (
-              <div
+              <AdditionalServiceCard
                 key={index}
-                className="glassmorphism p-6 card-hover animate-fade-in"
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                className="animate-fade-in"
                 style={{ animationDelay: `${index * 50}ms` }}
-              >
-                <div className="text-psyco-green-DEFAULT mb-4">{service.icon}</div>
-                <h3 className="text-xl font-medium text-white mb-2">{service.title}</h3>
-                <p className="text-gray-300">{service.description}</p>
-              </div>
+              />
             ))}
           </div>
         </div>
@@ -222,12 +238,13 @@ const Services = () => {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="glassmorphism p-8 md:p-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Make Your Event Exceptional?
-            </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-              Our team of experts is ready to help you plan and execute the perfect audio-visual experience for your event.
-            </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+  Ready to Optimize Your Logistics?
+</h2>
+<p className="text-gray-300 max-w-2xl mx-auto mb-8">
+  Reach out to DAISA to learn how our infrastructure can support your business with reliable warehousing and transport access.
+</p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <UIbutbook text="Book Now" to="/booking" />
               <UIbutton text="View On Map" to="/contact" />
