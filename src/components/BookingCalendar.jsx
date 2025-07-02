@@ -13,6 +13,8 @@ import {
 import { CalendarClock, MessageSquare } from 'lucide-react';
 import { format } from 'date-fns';
 import { toast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
+import { supabase } from '@/lib/supabaseClient'; 
 
 const availableTimeSlots = [
   '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
@@ -21,9 +23,9 @@ const availableTimeSlots = [
 ];
 
 const eventTypes = [
-  'Concert', 'Corporate Event', 'Wedding', 'Birthday Party',
-  'Festival', 'Conference', 'Club Night', 'Private Party',
-  'Other'
+  'Transportation', 'Warehousing', 'Production', 'Procurement',
+  'Distribution', 'Returns', 'Information', 'Third-Party',
+  'Fourth-Party '
 ];
 
 const BookingCalendar = () => {
@@ -34,7 +36,6 @@ const BookingCalendar = () => {
     name: '',
     email: '',
     phone: '',
-    location: '',
     details: ''
   });
 
@@ -43,41 +44,77 @@ const BookingCalendar = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (!date || !timeSlot || !eventType) {
-      toast({
-        title: "Missing information",
-        description: "Please select a date, time slot, and event type",
-        variant: "destructive"
-      });
-      return;
-    }
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    console.log({
-      date: date ? format(date, 'yyyy-MM-dd') : '',
-      timeSlot,
-      eventType,
-      ...formData
-    });
-
+  if (!date || !timeSlot || !eventType) {
     toast({
-      title: "Booking request submitted!",
-      description: `We'll contact you soon to confirm your ${eventType} on ${format(date, 'MMMM dd, yyyy')} at ${timeSlot}.`,
+      title: "Missing information",
+      description: "Please select a date, time slot, and event type",
+      variant: "destructive"
     });
+    return;
+  }
 
-    setDate(undefined);
-    setTimeSlot('');
-    setEventType('');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      location: '',
-      details: ''
+  toast({
+    title: "Booking request submitted!",
+    description: `We'll contact you soon to confirm your ${eventType} on ${format(date, 'MMMM dd, yyyy')} at ${timeSlot}.`,
+  });
+
+  // EmailJS
+  try {
+    await emailjs.send(
+      'DaisaSend',
+      'template_523qous',
+      {
+        to_email: formData.email,
+        name: formData.name,
+        event_type: eventType,
+        event_date: format(date, 'MMMM dd, yyyy'),
+        time_slot: timeSlot,
+        details: formData.details
+      },
+      '1nIxDNIFsNg25FKNN'
+    );
+    console.log("Email sent!");
+  } catch (error) {
+    console.error("Email send failed:", error);
+  }
+
+  // Supabase
+  const { error } = await supabase.from('bookings').insert([
+    {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      details: formData.details,
+      date: format(date, 'yyyy-MM-dd'),
+      time_slot: timeSlot,
+      event_type: eventType
+    }
+  ]);
+
+  if (error) {
+    console.error('Insert error:', error);
+    toast({
+      title: "Database error",
+      description: "Something went wrong. Try again later.",
+      variant: "destructive"
     });
-  };
+    return;
+  }
+
+  // Reset
+  setDate(undefined);
+  setTimeSlot('');
+  setEventType('');
+  setFormData({
+    name: '',
+    email: '',
+    phone: '',
+    details: ''
+  });
+};
 
   return (
     <div className="grid gap-8 md:grid-cols-2">
@@ -144,7 +181,7 @@ const BookingCalendar = () => {
               value={formData.name}
               onChange={handleInputChange}
               required
-              hideLabel
+
               className="bg-psyco-black-light border-psyco-green-muted/50"
             />
           </div>
@@ -158,7 +195,7 @@ const BookingCalendar = () => {
               value={formData.email}
               onChange={handleInputChange}
               required
-              hideLabel
+
               className="bg-psyco-black-light border-psyco-green-muted/50"
             />
           </div>
@@ -171,21 +208,8 @@ const BookingCalendar = () => {
               value={formData.phone}
               onChange={handleInputChange}
               required
-              hideLabel
-              className="bg-psyco-black-light border-psyco-green-muted/50"
-            />
-          </div>
-          
-          <div>
-            <label htmlFor="location" className="block text-gray-300 mb-1">Event Location</label>
-            <Input
-              id="location"
-              name="location"
-              value={formData.location}
-              onChange={handleInputChange}
-              required
-              hideLabel
-              className="bg-psyco-black-light border-psyco-green-muted/50"
+
+              className="bg-psyco-black-light boder-psyco-green-muted/50"
             />
           </div>
           
@@ -198,7 +222,7 @@ const BookingCalendar = () => {
               value={formData.details}
               onChange={handleInputChange}
               className="bg-psyco-black-light border-psyco-green-muted/50"
-              hideLabel
+
               placeholder="Please provide any specific requirements or details about your event"
             />
           </div>

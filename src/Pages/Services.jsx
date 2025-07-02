@@ -247,7 +247,7 @@ const Services = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <UIbutbook text="Book Now" to="/booking" />
-              <UIbutton text="View On Map" to="/contact" />
+              <UIbutton text="View On Map" to="https://go.2gis.com/jvmYC" />
             </div>
           </div>
         </div>
