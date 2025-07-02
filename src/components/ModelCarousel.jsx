@@ -3,16 +3,20 @@ import styled from "styled-components";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Model from "./Model";
 
-const models = ["/3d/futuristic_building.glb", "/3d/low_poly_building.glb"];
+const models = 
+["/3d/futuristic_building.glb",
+  "/3d/warehouse_building.glb",
+  "/3d/solar_energy_for_a_logistics_center.glb",
+ ];
 
 export default function ModelCarousel() {
   const [current, setCurrent] = useState(0);
-  const slides = 4;
+  const slides = models.length;
 
   const next = () => setCurrent((i) => (i + 1) % slides);
   const prev = () => setCurrent((i) => (i - 1 + slides) % slides);
 
-  const currentModel = current % 2 === 0 ? models[0] : models[1];
+  const currentModel = models[current];
 
   return (
     <Section>
