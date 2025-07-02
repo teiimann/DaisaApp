@@ -15,8 +15,8 @@ export default function Model({ url, background = "#0f1012" }) {
       <Suspense fallback={<Html>Loading...</Html>}>
         <ModelInner url={url} />
       </Suspense>
-      {/* <OrbitControls enablePan={false} /> */}
-      <OrbitControls enableZoom={false} enablePan={false} />
+      <OrbitControls enablePan={false} />
+      {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
     </Canvas>
   );
 }

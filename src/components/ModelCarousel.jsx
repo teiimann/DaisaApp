@@ -19,7 +19,7 @@ export default function ModelCarousel() {
       <div className="container">
         <Header>
           <h2>
-            Professional <span>Audio Visual</span> Solutions
+            Professional <span>Visual</span> Solutions
           </h2>
           <p>Explore our 3D preview — rotate with your mouse or touch.</p>
         </Header>
